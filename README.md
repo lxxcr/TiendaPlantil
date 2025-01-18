@@ -1,0 +1,2 @@
+# TiendaPlantil
+ Simulador de tienda online; El objetivo de este ejercicio es desarrollar un simulador de tienda online utilizando únicamente HTML, CSS y JavaScript, sin el uso de frameworks ni herramientas externas.  El simulador permitirá a los usuarios agregar productos a un carrito de compras, visualizar los productos seleccionados y calcular el total de la compra. Este ejercicio está diseñado para aplicar conceptos de manipulación del DOM, manejo de eventos y lógica de programación con JavaScript.
