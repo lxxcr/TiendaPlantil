@@ -1,0 +1,47 @@
+:root {
+    --prymary-color: #A6DB93;
+    --secondary-color: #49856E;
+    --primary-font: "Funnel Sans", sans-serif;
+    /* Tipografía principal */
+    --secondary-font: "Averia Libre", serif;
+    /* Tipografia logotipo y titulos */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    line-height: initial;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: var(--secondary-font);
+    font-size: 3rem;
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 62.75rem;
+    margin: 0 auto;
+    padding: 1rem;
+}

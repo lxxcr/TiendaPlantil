@@ -1,0 +1,41 @@
+header {
+    background-color: var(--prymary-color);
+    padding: 20px;
+
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    figure img {
+        max-width: 300px;
+        display: inline;
+    }
+
+    h1 {
+        display: inline;
+    }
+
+}
+
+header nav {
+
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: flex-end;
+        gap: 2rem;
+
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: whitesmoke;
+        text-align: center;
+    }
+}
