@@ -24,7 +24,7 @@
                 <nav>
                     <ul>
                         <li><a href="#"><i class="fa-solid fa-circle-user"></i></a></li>
-                        <li><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                        <li><a href="#"><i id="cart" class="fa-solid fa-basket-shopping"></i></a></li>
                     </ul>
 
                 </nav>
@@ -32,22 +32,36 @@
         </header>
 
         <main>
-            <div class="container">
-                <h2>Plantas</h2>
-                <div class="grid">
-                    <article>
-                        <figure>
-                            <img src="" alt="Planta 1">
-                        </figure>
-                        <div class="content">
-                            <h3>Nombre planta</h3>
-                            <p>12.99 €</p>
-                            <p>Descripcion</p>
-                        </div>
-                        <button>Añadir</button>
-                    </article>
-                </div>
 
+            <div class="container">
+                <div class="cart">
+                    <h4>Carrito</h4>
+                    <hr>
+                    <ul id="list">
+                        <!-- <li>Callatea - 2 <button>borrar</button></li> -->
+                    </ul>
+                </div>
+                <section id="product">
+                    <h2>Plantas</h2>
+
+                    <div class="grid">
+                        <!--        <article>
+                            <figure>
+                                <img src="./assets/images/calathea.jpg">
+                            </figure>
+                            <div class="content">
+                                <h3>Nombre planta</h3>
+                                <p>12.99 €</p>
+                                <p>Descripcion</p>
+                            </div>
+                            <button>Añadir</button>
+                        </article> -->
+                    </div>
+                </section>
+                <div class="flex">
+                    <button>PREV</button>
+                    <button>NEXT</button>
+                </div>
             </div>
 
 

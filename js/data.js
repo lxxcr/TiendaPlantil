@@ -1,8 +1,8 @@
-const listaPlantas = [
+const products = [
     {
         "id": 1,
         "nombre": "Orquídea Phalaenopsis",
-        "imagen": "https://ejemplo.com/orquidea.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Elegante planta con flores exóticas en variedad de colores, perfecta para interiores.",
         "precio": 25.99,
         "stock": 50
@@ -10,7 +10,7 @@ const listaPlantas = [
     {
         "id": 2,
         "nombre": "Anthurium",
-        "imagen": "https://ejemplo.com/anthurium.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta tropical con flores rojas brillantes y hojas verdes vibrantes.",
         "precio": 22.50,
         "stock": 40
@@ -18,7 +18,7 @@ const listaPlantas = [
     {
         "id": 3,
         "nombre": "Kalanchoe",
-        "imagen": "https://ejemplo.com/kalanchoe.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta resistente con flores duraderas en diversos colores.",
         "precio": 12.99,
         "stock": 100
@@ -26,7 +26,7 @@ const listaPlantas = [
     {
         "id": 4,
         "nombre": "Drácena",
-        "imagen": "https://ejemplo.com/dracena.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta versátil con hojas estilizadas, ideal para decoración de interiores.",
         "precio": 18.99,
         "stock": 30
@@ -34,7 +34,7 @@ const listaPlantas = [
     {
         "id": 5,
         "nombre": "Ficus Benjamina",
-        "imagen": "https://ejemplo.com/ficus.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta frondosa que se adapta fácilmente a diversas condiciones de luz.",
         "precio": 29.99,
         "stock": 25
@@ -42,7 +42,7 @@ const listaPlantas = [
     {
         "id": 6,
         "nombre": "Spathiphyllum",
-        "imagen": "https://ejemplo.com/spathiphyllum.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Conocida como 'Cuna de Moisés', es ideal para purificar el aire y decorar con elegancia.",
         "precio": 19.99,
         "stock": 60
@@ -50,7 +50,7 @@ const listaPlantas = [
     {
         "id": 7,
         "nombre": "Poinsettia",
-        "imagen": "https://ejemplo.com/poinsettia.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta icónica de Navidad con hojas rojas brillantes.",
         "precio": 14.99,
         "stock": 80
@@ -58,7 +58,7 @@ const listaPlantas = [
     {
         "id": 8,
         "nombre": "Monstera Deliciosa",
-        "imagen": "https://ejemplo.com/monstera.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta moderna con hojas perforadas que aportan un toque tropical.",
         "precio": 34.99,
         "stock": 20
@@ -66,7 +66,7 @@ const listaPlantas = [
     {
         "id": 9,
         "nombre": "Zamioculca",
-        "imagen": "https://ejemplo.com/zamioculca.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta de bajo mantenimiento, ideal para principiantes en jardinería.",
         "precio": 24.50,
         "stock": 45
@@ -74,7 +74,7 @@ const listaPlantas = [
     {
         "id": 10,
         "nombre": "Calathea Ornata",
-        "imagen": "https://ejemplo.com/calathea.jpg",
+        "imagen": "https://img.freepik.com/foto-gratis/planta-medallon-calathea-maceta-blanca_53876-133135.jpg?ga=GA1.1.1838986667.1733367444&semt=ais_incoming",
         "descripcion": "Planta con hojas decorativas y patrones únicos.",
         "precio": 27.99,
         "stock": 35
