@@ -12,32 +12,40 @@ cart.addEventListener("click", () => {
 /* const buttons = document.querySelectorAll('.flex button'); //array de botones */
 
 
-const cart = [];
+// Función pintar item(producto) carrito
+function printCartItem(cartContainer, product) {
+    let cartItem = cartContainer.querySelector(`[data-id='${product.id}']`);
 
-// Función pintar el carrito
-function printCart() {
-    const cartContainer = document.getElementById('cart');
-    cartContainer.innerHTML = ''; //Limpie el carrito antes de volver a pintarlo */
+    if (cartItem) {
+        // Actualizar cantidad y total
+        const quantitySpan = cartItem.querySelector('.quantity');
+        const totalSpan = cartItem.querySelector('.total');
+        const newQuantity = Number(quantitySpan.textContent) + 1;
 
-    cart.forEach(product => {
-        const li = document.createElement('li');
-        li.textContent = `${product.nombre} - ${product.precio} €`;
-        cartContainer.appendChild(li);
-    });
-
+        quantitySpan.textContent = newQuantity;
+        totalSpan.textContent = `${newQuantity * product.precio} €`;
+    } else {
+        // Crear un nuevo elemento en el carrito
+        cartItem = document.createElement('li');
+        cartItem.dataset.id = product.id;
+        cartItem.innerHTML = `${product.nombre} - <span class="quantity">1</span> x ${product.precio} € = <span class="total">${product.precio} €</span>`;
+        cartContainer.appendChild(cartItem);
+    }
 }
 
 //FUNCIÓN PARA CREAR EVENTO DEL BOTON QUE AÑADE EL PRODUCTO AL CARRITO
 function addProduct(event) {
-    let id = Number(event.target.dataset.productid);
-    let productAdd = products.find(product => product.id === id);
+    const id = Number(event.target.dataset.productid);
+    const productAdd = products.find(product => product.id === id);
 
-    // Evitar duplicados en el carrito
-    if (productAdd && !cart.find(product => product.id === id)) {
-        cart.push(productAdd);
-        console.log(productAdd);
-        printCart();
+    if (productAdd) {
+        const cartContainer = document.getElementById('cart');
+        printCartItem(cartContainer, productAdd);
+        console.log(`Producto añadido: ${productAdd.nombre}`);
+    } else {
+        console.error('Producto no encontrado.');
     }
+
 }
 
 //Función pintar un producto
