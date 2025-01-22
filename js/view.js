@@ -25,10 +25,17 @@ function printCartItem(cartContainer, product) {
         quantitySpan.textContent = newQuantity;
         totalSpan.textContent = `${newQuantity * product.precio} €`;
     } else {
-        // Crear un nuevo elemento en el carrito
+        // Crear un nuevo item
         cartItem = document.createElement('li');
         cartItem.dataset.id = product.id;
-        cartItem.innerHTML = `${product.nombre} - <span class="quantity">1</span> x ${product.precio} € = <span class="total">${product.precio} €</span>`;
+        cartItem.innerHTML = `${product.nombre} - <span class="quantity">1</span> x ${product.precio} € = <span class="total">${product.precio} €</span><button class="btn-increase">+</button><button class="btn-decrease">-</button><button class="btn-remove">Eliminar</button>`;
+        cartContainer.appendChild(cartItem);
+
+        // Asociar eventos a los botones
+        cartItem.querySelector('.btn-increase').addEventListener('click', () => increaseQuantity(product.id));
+        cartItem.querySelector('.btn-decrease').addEventListener('click', () => decreaseQuantity(product.id));
+        cartItem.querySelector('.btn-remove').addEventListener('click', () => removeProduct(product.id));
+
         cartContainer.appendChild(cartItem);
     }
 }
@@ -41,7 +48,6 @@ function addProduct(event) {
     if (productAdd) {
         const cartContainer = document.getElementById('cart');
         printCartItem(cartContainer, productAdd);
-        console.log(`Producto añadido: ${productAdd.nombre}`);
     } else {
         console.error('Producto no encontrado.');
     }
