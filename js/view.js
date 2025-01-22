@@ -3,23 +3,23 @@
 //grid productos
 const sectionGrid = document.querySelector('#product .grid');
 
-//icono carrito
+/* //icono carrito
 const cart = document.getElementById('cart')
 
 cart.addEventListener("click", () => {
     alert("¡Ícono clicado!");
-});
+}); */
 /* const buttons = document.querySelectorAll('.flex button'); //array de botones */
 
 
-const carrito = [];
+const cart = [];
 
 // Función pintar el carrito
-function printCarrito() {
-    const cartContainer = document.getElementById('carrito');
+function printCart() {
+    const cartContainer = document.getElementById('cart');
     cartContainer.innerHTML = ''; //Limpie el carrito antes de volver a pintarlo */
 
-    carrito.forEach(product => {
+    cart.forEach(product => {
         const li = document.createElement('li');
         li.textContent = `${product.nombre} - ${product.precio} €`;
         cartContainer.appendChild(li);
@@ -31,9 +31,13 @@ function printCarrito() {
 function addProduct(event) {
     let id = Number(event.target.dataset.productid);
     let productAdd = products.find(product => product.id === id);
-    carrito.push(productAdd);
-    console.log(productAdd);
-    printCarrito();
+
+    // Evitar duplicados en el carrito
+    if (productAdd && !cart.find(product => product.id === id)) {
+        cart.push(productAdd);
+        console.log(productAdd);
+        printCart();
+    }
 }
 
 //Función pintar un producto
