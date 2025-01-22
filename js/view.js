@@ -1,9 +1,10 @@
-//Capturamos los datos con los que vamos a interactuar en el dom (grid,carritobottones)
+//Capturamos los datos con los que vamos a interactuar en el dom (grid,carrito, bottones)
 
+//grid productos
+const sectionGrid = document.querySelector('#product .grid');
 
-const sectionGrid = document.querySelector('#product .grid'); //grid productos
-
-const cart = document.getElementById("cart")  //icono carrito
+//icono carrito
+const cart = document.getElementById('cart')
 
 cart.addEventListener("click", () => {
     alert("¡Ícono clicado!");
@@ -11,20 +12,31 @@ cart.addEventListener("click", () => {
 /* const buttons = document.querySelectorAll('.flex button'); //array de botones */
 
 
-//1º pintar el listado completo de plantas
+const carrito = [];
 
-/* <article>
-    <figure>
-        <img src="" alt="Planta 1">
-    </figure>
-    <div class="content">
-        <h3>Nombre planta</h3>
-        <h6>12.99 €</h6>
-        <p>Descripcion</p>
-    </div>
-    <button>Añadir</button>
-</article> */
+// Función pintar el carrito
+function printCarrito() {
+    const cartContainer = document.getElementById('carrito');
+    cartContainer.innerHTML = ''; //Limpie el carrito antes de volver a pintarlo */
 
+    carrito.forEach(product => {
+        const li = document.createElement('li');
+        li.textContent = `${product.nombre} - ${product.precio} €`;
+        cartContainer.appendChild(li);
+    });
+
+}
+
+//FUNCIÓN PARA CREAR EVENTO DEL BOTON QUE AÑADE EL PRODUCTO AL CARRITO
+function addProduct(event) {
+    let id = Number(event.target.dataset.productid);
+    let productAdd = products.find(product => product.id === id);
+    carrito.push(productAdd);
+    console.log(productAdd);
+    printCarrito();
+}
+
+//Función pintar un producto
 function printOneProduct(product, dom) {
     const article = document.createElement('article'); //<article></article>
     const figure = document.createElement('figure'); //<figure></figure>
@@ -35,14 +47,20 @@ function printOneProduct(product, dom) {
     const div = document.createElement('div'); //<div></div>
     div.classList.add('content'); //añadiendo clase del div
     div.innerHTML = `<h3>${product.nombre}</h3>
-                    <h6>${product.precio}</h6>
-                    <p>${product.descripcion}</p>`
+                    <p>${product.descripcion}</p>
+                    <h6>${product.precio} &euro;</h6>`
+
+    const button = document.createElement('button'); // <button></button>
+    button.textContent = '+';
+    button.addEventListener('click', addProduct); // Evento click
+    button.dataset.productid = product.id; // Asociar el ID del producto
 
     figure.appendChild(img);  // img hijo de figure
-    article.append(figure, div); //figure,div,button hijos de article
+    article.append(figure, div, button); //figure,div,button hijos de article
     dom.appendChild(article);
 }
 
+//1º pintar el listado completo de plantas
 function printAllProducts(list, dom) {
     list.forEach(product => printOneProduct(product, dom))
 }

@@ -30,6 +30,21 @@ h1 {
     color: whitesmoke;
 }
 
+button {
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color)
+    }
+}
+
 img {
     width: 100%;
     height: auto;
