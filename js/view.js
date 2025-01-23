@@ -45,13 +45,68 @@ function addProduct(event) {
     const id = Number(event.target.dataset.productid);
     const productAdd = products.find(product => product.id === id);
 
-    if (productAdd) {
-        const cartContainer = document.getElementById('cart');
-        printCartItem(cartContainer, productAdd);
+    const cartContainer = document.getElementById('cart');
+    productAdd ? printCartItem(cartContainer, productAdd) : console.error('Producto no encontrado.');
+
+}
+
+//Función para borrar Item(producto) del carrito
+
+function removeProduct(id) {
+    const cartContainer = document.getElementById('cart');
+    const cartItem = cartContainer.querySelector(`[data-id='${id}']`);
+
+    if (cartItem) {
+        cartItem.remove();
     } else {
         console.error('Producto no encontrado.');
     }
+}
 
+//Función para aumentar la cantidad de un producto
+
+function increaseQuantity(id) {
+    const cartContainer = document.getElementById('cart');
+    const cartItem = cartContainer.querySelector(`[data-id='${id}']`);
+
+    if (cartItem) {
+        const quantitySpan = cartItem.querySelector('.quantity');
+        const totalSpan = cartItem.querySelector('.total');
+        const newQuantity = Number(quantitySpan.textContent) + 1;
+
+        quantitySpan.textContent = newQuantity;
+        totalSpan.textContent = `${newQuantity * products.find(product => product.id === id).precio} €`;
+        console.log(totalSpan.textContent);
+    } else {
+        console.error('Producto no encontrado.');
+    }
+}
+
+//Funcion para disminuir la cantidad de un producto
+
+function decreaseQuantity(id) {
+    const cartContainer = document.getElementById('cart');
+    const cartItem = cartContainer.querySelector(`[data-id='${id}']`);
+
+    if (cartItem) {
+        const quantitySpan = cartItem.querySelector('.quantity');
+        const totalSpan = cartItem.querySelector('.total');
+        const newQuantity = Number(quantitySpan.textContent) - 1;
+
+        if (newQuantity > 0) {
+            quantitySpan.textContent = newQuantity;
+            totalSpan.textContent = `${newQuantity * products.find(product => product.id === id).precio} €`;
+        } else {
+            removeProduct(id);
+        }
+    } else {
+        console.error('Producto no encontrado.');
+    }
+}
+
+//Función para calcular el total del valor del producto
+
+function calculateTotal() {
 }
 
 //Función pintar un producto
