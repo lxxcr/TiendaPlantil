@@ -1,15 +1,21 @@
-//Capturamos los datos con los que vamos a interactuar en el dom (grid,carrito, bottones)
+//Capturamos los datos con los que vamos a interactuar en el dom (grid,carrito, bottones(paginación)(opcional))
+
+/* const buttons = document.querySelectorAll('.flex button'); //array de botones */
+
 
 //grid productos
 const sectionGrid = document.querySelector('#product .grid');
 
-/* //icono carrito
-const cart = document.getElementById('cart')
+//icono carrito
+const cartIcon = document.getElementById('cartIcon');
 
-cart.addEventListener("click", () => {
-    alert("¡Ícono clicado!");
-}); */
-/* const buttons = document.querySelectorAll('.flex button'); //array de botones */
+cartIcon.addEventListener("click", () => {
+    document.getElementById('cart').classList.toggle('active')
+});
+const carrito = document.querySelector(' #cart .carrito');
+
+
+
 
 
 // Función pintar item(producto) carrito
@@ -29,7 +35,7 @@ function printCartItem(cartContainer, product) {
         cartItem = document.createElement('li');
         cartItem.dataset.id = product.id;
         cartItem.innerHTML = `${product.nombre} - <span class="quantity">1</span> x ${product.precio} € = <span class="total">${product.precio} €</span><button class="btn-increase">+</button><button class="btn-decrease">-</button><button class="btn-remove">Eliminar</button>`;
-        cartContainer.appendChild(cartItem);
+
 
         // Asociar eventos a los botones
         cartItem.querySelector('.btn-increase').addEventListener('click', () => increaseQuantity(product.id));
@@ -45,9 +51,10 @@ function addProduct(event) {
     const id = Number(event.target.dataset.productid);
     const productAdd = products.find(product => product.id === id);
 
-    const cartContainer = document.getElementById('cart');
-    productAdd ? printCartItem(cartContainer, productAdd) : console.error('Producto no encontrado.');
+    const cartContainer = document.getElementById('cartItem');
 
+    printCartItem(cartContainer, productAdd);
+    calculateTotal();
 }
 
 //Función para borrar Item(producto) del carrito
@@ -55,12 +62,8 @@ function addProduct(event) {
 function removeProduct(id) {
     const cartContainer = document.getElementById('cart');
     const cartItem = cartContainer.querySelector(`[data-id='${id}']`);
-
-    if (cartItem) {
-        cartItem.remove();
-    } else {
-        console.error('Producto no encontrado.');
-    }
+    cartItem.remove();
+    calculateTotal();
 }
 
 //Función para aumentar la cantidad de un producto
@@ -77,9 +80,11 @@ function increaseQuantity(id) {
         quantitySpan.textContent = newQuantity;
         totalSpan.textContent = `${newQuantity * products.find(product => product.id === id).precio} €`;
         console.log(totalSpan.textContent);
+
     } else {
         console.error('Producto no encontrado.');
     }
+    calculateTotal();
 }
 
 //Funcion para disminuir la cantidad de un producto
@@ -99,15 +104,33 @@ function decreaseQuantity(id) {
         } else {
             removeProduct(id);
         }
+
     } else {
         console.error('Producto no encontrado.');
     }
+    calculateTotal();
 }
 
 //Función para calcular el total del valor del producto
 
 function calculateTotal() {
+    const cartTotal = document.getElementById('total');
+    const cartItems = document.querySelectorAll('#cart li');
+    let total = 0;
+
+
+    cartItems.forEach(item => {
+        const totalSpan = item.querySelector('.total');
+        total += parseFloat(totalSpan.textContent.replace(' €', ''));
+    });
+
+    cartTotal.textContent = `Total: ${total.toFixed(2)} €`; // Mostrar con 2 decimales
 }
+
+
+
+//Funcion para borrar todo el carrito
+
 
 //Función pintar un producto
 function printOneProduct(product, dom) {
